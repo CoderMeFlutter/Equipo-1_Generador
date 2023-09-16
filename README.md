@@ -20,8 +20,8 @@ Para utilizar esta herramienta, simplemente proporciona el texto que deseas anal
 Este proyecto ha sido desarrollado por un equipo apasionado de programadores:
 
 - Daniel: [Perfil de GitHub](URL_de_GitHub_Enrique)
-- Manuel: [Perfil de GitHub](URL_de_GitHub_Manuel)
-- Mauricio (Mau): [Perfil de GitHub](URL_de_GitHub_Mauricio)
+- Manuel: [Perfil de GitHub](URL_de_GitHub_Manuel)|
+- Mauricio (Mau): [BlackShadow12675]([URL_de_GitHub_Mauricio](https://github.com/BlackShadow12675))
 
 ## Contribuciones
 
@@ -29,6 +29,6 @@ Agradecemos las contribuciones de la comunidad para mejorar esta herramienta.
 
 ## Contacto
 
-Si tienes alguna pregunta o comentario sobre este proyecto, no dudes en ponerte en contacto con nosotros a través de la siguiente dirección de correo electrónico: [coderme@gmail.com].
+Si tienes alguna pregunta o comentario sobre este proyecto, no dudes en ponerte en contacto con nosotros a través de la siguiente dirección de correo electrónico: [coderme.git@gmail.com].
 
 ¡Gracias por usar la Herramienta de Análisis de Texto Generador!
