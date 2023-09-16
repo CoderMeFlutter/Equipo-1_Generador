@@ -20,8 +20,8 @@ Para utilizar esta herramienta, simplemente proporciona el texto que deseas anal
 Este proyecto ha sido desarrollado por un equipo apasionado de programadores:
 
 - Daniel: [Perfil de GitHub](URL_de_GitHub_Enrique)
-- Manuel: [Perfil de GitHub](URL_de_GitHub_Manuel)|
-- Mauricio (Mau): [BlackShadow12675]([URL_de_GitHub_Mauricio](https://github.com/BlackShadow12675))
+- Manuel: [Perfil de GitHub](URL_de_GitHub_Manuel)
+- Mauricio (Mau): [BlackShadow12675](https://github.com/BlackShadow12675)
 
 ## Contribuciones
 
