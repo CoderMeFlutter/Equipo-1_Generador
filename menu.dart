@@ -1,6 +1,6 @@
+//importamos las librerias necesarias
 import 'Librerias.dart';
 import 'dart:io';
-
 
 void Menu(){
    //creamos una variable para el ciclo for
@@ -30,14 +30,16 @@ void Menu(){
     print('|                                                          |');
     print('|__________________________________________________________|');
     print('\n');
+
+    //Pedimos la opcion al usuario
     print('___________');
     stdout.write("Opcion:  ");
-
     int opcMenuPrincipal = int.parse(stdin.readLineSync()!);
 
+    //Switch para el menu principal
     switch(opcMenuPrincipal) {
 
-        case 1:
+        case 1://Analizar texto en la terminal
           clearScreen();
           print("Limitado hasta 254 caracteres aproximadamente para evitar errores.");  
           print('\n\n Ingresa el texto a analizar:\n');
@@ -48,7 +50,7 @@ void Menu(){
           menuSecundario(opcMenuPrincipal, texto);
           break;
 
-        case 2:
+        case 2://Analizar texto en documento .txt
           clearScreen();
           // Solicita al usuario que ingrese la ruta completa del archivo a leer.
           stdout.write('Ingresa la ruta del archivo: ');
@@ -73,11 +75,12 @@ void Menu(){
           }
           break;
 
-        case 0:
+        case 0://salir
         clearScreen();
         print('Seguro que deseas salir ?');
         stdout.write("\n\n S o N_: ");
         String respuesta = stdin.readLineSync()!;
+        //condicion para salir del programa
         if(respuesta == 'S' || respuesta == 's'){
           valor = true;
           clearScreen();
@@ -92,7 +95,7 @@ void Menu(){
         clearScreen();
           break;
 
-        default:
+        default://opcion no valida en el menu principal
           clearScreen();
           print('Opcion no valida');
           print('\n\n\n\n\n\n\n\n Presiona enter para continuar...');
@@ -104,14 +107,14 @@ void Menu(){
   }//fin del for
 }//fin de la funcion menu
 
-
 void menuSecundario(int opcMenuPrincipal, String texto){
     //creamos una variable para el ciclo for
     bool valor = false;
 
     //ciclo for para el menu, que se detendra al retornar el valor como 'true'
-    //!For Menu secundario
+    //For Menu secundario
     for( ; valor == false; ) {
+    //impresion de nuestro menu
     print('____________________________________________________________');
     print('|                     MENU "secundario".                   |');
     print('|                                                          |');
@@ -132,10 +135,12 @@ void menuSecundario(int opcMenuPrincipal, String texto){
     print('|                                                          |');
     print('|__________________________________________________________|');
     print('\n');
+    //Pedimos la opcion al usuario
     print('___________');
     stdout.write("Opcion:  ");
     int opcMenuSecundario = int.parse(stdin.readLineSync()!);
 
+    //Condicion para que el menu secundario se adapte segun la respuesta del menu principal
     if(opcMenuPrincipal == 2 && opcMenuSecundario == 1){
         opcMenuSecundario = 11;
       }
@@ -145,7 +150,7 @@ void menuSecundario(int opcMenuPrincipal, String texto){
 
     switch(opcMenuSecundario){
         
-        case 1:
+        case 1://Contador de palabras
           clearScreen();
           print('__________');
           print('|Opcion 1|');
@@ -155,7 +160,7 @@ void menuSecundario(int opcMenuPrincipal, String texto){
           stdin.readLineSync()!;
           break;
   
-        case 2:
+        case 2://Buscador de palabras clave
           clearScreen();
           print('__________');
           print('|Opcion 2|');
@@ -167,7 +172,7 @@ void menuSecundario(int opcMenuPrincipal, String texto){
           stdin.readLineSync()!;
           break;
         
-        case 3:
+        case 3://Contador de caracteres
           clearScreen();
           print('__________');
           print('|Opcion 3|');
@@ -177,7 +182,7 @@ void menuSecundario(int opcMenuPrincipal, String texto){
           stdin.readLineSync()!;
           break;
 
-        case 4:
+        case 4://Imprimir contenido
           clearScreen();
           print('__________');
           print('|Opcion 4|');
@@ -187,7 +192,7 @@ void menuSecundario(int opcMenuPrincipal, String texto){
           stdin.readLineSync()!;
           break;
 
-        case 11:
+        case 11://Contador de palabras 2
           clearScreen();
           print('__________');
           print('|Opcion 1|');
@@ -197,7 +202,7 @@ void menuSecundario(int opcMenuPrincipal, String texto){
           stdin.readLineSync()!;
           break;
 
-        case 12:
+        case 12://Buscador de palabras clave 2
           clearScreen();
           print('__________');
           print('|Opcion 2|');
@@ -209,18 +214,20 @@ void menuSecundario(int opcMenuPrincipal, String texto){
           stdin.readLineSync()!;
           break;
   
-        case 5: //regresar al menu anterior
+        case 5://regresar al menu anterior
           clearScreen();
           print('\n\n Presiona enter para regresar al menu anterior...');
           stdin.readLineSync()!;
           Menu();
           break;
   
-        case 0:
+        case 0://salir
           clearScreen();
           print('Seguro que deseas salir ?');
           stdout.write("\n\n S o N_: ");
           String respuesta = stdin.readLineSync()!;
+
+          //condicion para salir del programa
           if(respuesta == 'S' || respuesta == 's'){
             valor = true;
             clearScreen();
@@ -235,7 +242,7 @@ void menuSecundario(int opcMenuPrincipal, String texto){
           clearScreen();
           break;
   
-        default:
+        default://opcion no valida en el menu secundario
           clearScreen();
           print('Opcion no valida');
           print('\n\n\n\n\n\n\n\n Presiona enter para continuar...');
@@ -245,33 +252,3 @@ void menuSecundario(int opcMenuPrincipal, String texto){
     }//fin del switch
   }//fin del for
 }//fin de la funcion menuSecundario
-
-int contadorDePalabras(String texto) {
-  // Usar una expresión regular para encontrar palabras en el texto.
-  RegExp regExp = RegExp(r'\b\w+\b');
-  Iterable<Match> matches = regExp.allMatches(texto);
-
-  // Contar las coincidencias encontradas.
-  int cantidadPalabras = matches.length;
-
-  return cantidadPalabras;
-}
-
-int contadorDePalabrasClave(String texto, String palabraClave) {
-  // Convertir la palabra clave y el texto a minúsculas para hacer la búsqueda insensible a mayúsculas y minúsculas.
-  palabraClave = palabraClave.toLowerCase();
-  texto = texto.toLowerCase();
-
-  // Dividir el texto en palabras y contar las que coinciden con la palabra clave.
-  List<String> palabras = texto.split(RegExp(r'[^a-zA-Z0-9_]'));
-  int cantidadCoincidencias = palabras.where((palabra) => palabra == palabraClave).length;
-
-  return cantidadCoincidencias;
-}
-
-int contadorDeCaracteres(String texto) {
-  // Utilizamos la propiedad length de la cadena para contar la cantidad de caracteres.
-  int cantidadCaracteres = texto.length;
-  return cantidadCaracteres;
-}
-
