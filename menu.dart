@@ -12,26 +12,26 @@ void Menu(){
     
   //impresion de nuestro menu
   clearScreen();
-    print('------------------------------------------------------------');
+    print('____________________________________________________________');
     print('|                                                          |');
     print('|                   Analizador de texto.                   |');
     print('|                                                          |');
-    print('------------------------------------------------------------');
+    print('|__________________________________________________________|');
     print('|                     MENU PRINCIPAL.                      |');
     print('|                                                          |');
     print('| Selecciona una opcion:                                   |');
-    print('------------------------------------------------------------');
+    print('|__________________________________________________________|');
     print('|                                                          |');
     print('| 1. Analizar Texto en la terminal.                        |');
     print('|                                                          |');
     print('| 2. Analizar Texto en Documento ".txt".                   |');
     print('|                                                          |');
-    print('| 3. Salir.                                                |');
+    print('| 0. Salir.                                                |');
     print('|                                                          |');
-    print('------------------------------------------------------------');
+    print('|__________________________________________________________|');
     print('\n');
-    print('---------------');
-    print('Opcion:       |');
+    print('___________');
+    stdout.write("Opcion:  ");
 
     int opcMenuPrincipal = int.parse(stdin.readLineSync()!);
 
@@ -39,9 +39,10 @@ void Menu(){
 
         case 1:
           clearScreen();
-          print('Ingresa el texto a analizar:');
+          print("Limitado hasta 254 caracteres aproximadamente para evitar errores.");  
+          print('\n\n Ingresa el texto a analizar:\n');
           String texto = stdin.readLineSync()!;
-          print(' \n Presiona enter para continuar...');
+          print('\n\n\n\n\n\n\n\n Presiona enter para continuar...');
           stdin.readLineSync()!;
           clearScreen();
           menuSecundario(opcMenuPrincipal, texto);
@@ -61,7 +62,7 @@ void Menu(){
             // Verifica si el archivo existe.
             if (archivo.existsSync()) {
               texto = archivo.readAsStringSync();
-              print('\n Presiona enter para continuar...');
+              print('\n\n\n\n\n\n\n\n Presiona enter para continuar...');
               stdin.readLineSync()!;
               menuSecundario(opcMenuPrincipal, texto);
             } else {
@@ -72,15 +73,31 @@ void Menu(){
           }
           break;
 
-        case 3:
+        case 0:
         clearScreen();
-        print('Seguro que deseas salir?');
-        print('S o N');
+        print('Seguro que deseas salir ?');
+        stdout.write("\n\n S o N_: ");
         String respuesta = stdin.readLineSync()!;
         if(respuesta == 'S' || respuesta == 's'){
+          valor = true;
+          clearScreen();
           exit(0);
         }
+        else{
+            clearScreen();
+            print("Opcion no valida");
+            print('\n\n\n\n\n\n\n\n Presiona enter para continuar...');
+            stdin.readLineSync()!;
+          }
         clearScreen();
+          break;
+
+        default:
+          clearScreen();
+          print('Opcion no valida');
+          print('\n\n\n\n\n\n\n\n Presiona enter para continuar...');
+          stdin.readLineSync()!;
+          clearScreen();
           break;
 
     }//fin del switch
@@ -95,99 +112,134 @@ void menuSecundario(int opcMenuPrincipal, String texto){
     //ciclo for para el menu, que se detendra al retornar el valor como 'true'
     //!For Menu secundario
     for( ; valor == false; ) {
-    print('------------------------------------------------------------');
+    print('____________________________________________________________');
     print('|                     MENU "secundario".                   |');
     print('|                                                          |');
     print('| Selecciona una opcion:                                   |');
-    print('------------------------------------------------------------');
+    print('|__________________________________________________________|');
     print('|                                                          |');
     print('| 1. Contar la cantidad de palabras.                       |');
     print('|                                                          |');
     print('| 2. Contar la frecuencia de una palabra clave.            |');
     print('|                                                          |');
-    print('| 3. Imprimir contenido.                                   |');
+    print('| 3. Contar la cantidad de caracteres.                     |');
     print('|                                                          |');
-    print('| 4. Regresar al menu anterior.                            |');
+    print('| 4. Imprimir contenido.                                   |');
     print('|                                                          |');
-    print('| 5. Salir.                                                |');
+    print('| 5. Regresar al menu anterior.                            |');
     print('|                                                          |');
-    print('------------------------------------------------------------');
+    print('| 0. Salir.                                                |');
+    print('|                                                          |');
+    print('|__________________________________________________________|');
     print('\n');
+    print('___________');
+    stdout.write("Opcion:  ");
     int opcMenuSecundario = int.parse(stdin.readLineSync()!);
 
     if(opcMenuPrincipal == 2 && opcMenuSecundario == 1){
-        opcMenuSecundario = 6;
+        opcMenuSecundario = 11;
       }
       else if(opcMenuPrincipal == 2 && opcMenuSecundario == 2){
-        opcMenuSecundario = 7;
+        opcMenuSecundario = 12;
     }
 
     switch(opcMenuSecundario){
         
         case 1:
           clearScreen();
-          print('Opcion 1');
+          print('__________');
+          print('|Opcion 1|');
+          print('|________|\n\n');
           print("La cantidad de palabras es: ${contadorDePalabras(texto)}");
-          print('Presiona enter para continuar...');
+          print('\n\n\n\n\n\n\n\n Presiona enter para continuar...');
           stdin.readLineSync()!;
           break;
   
         case 2:
           clearScreen();
-          print('Opcion 2');
-          print("Ingrese la palabra clave a buscar: ");
+          print('__________');
+          print('|Opcion 2|');
+          print('|________|\n\n');
+          stdout.write("Ingrese la palabra clave a buscar: ");
           String palabraClave = stdin.readLineSync()!;
-          print("La frecuencia de la palabra es: ${contadorDePalabrasClave(texto, palabraClave)}");
-          print('Presiona enter para continuar...');
+          print("\n\n La frecuencia de la palabra es: ${contadorDePalabrasClave(texto, palabraClave)}");
+          print('\n\n\n\n\n\n\n\n Presiona enter para continuar...');
           stdin.readLineSync()!;
           break;
-
+        
         case 3:
           clearScreen();
-          print('Opcion 3');
-          print("\nEl texto ingresado es:\n $texto \n\n");
-          print('Presiona enter para continuar...');
+          print('__________');
+          print('|Opcion 3|');
+          print('|________|\n\n');
+          print("La cantidad de caracteres es: ${contadorDeCaracteres(texto)}");
+          print('\n\n\n\n\n\n\n\n Presiona enter para continuar...');
           stdin.readLineSync()!;
           break;
 
-        case 6:
+        case 4:
           clearScreen();
-          print('Opcion 1');
+          print('__________');
+          print('|Opcion 4|');
+          print('|________|\n\n');
+          print("El texto ingresado es:\n\n $texto\n");
+          print('\n\n\n\n\n\n\n\n Presiona enter para continuar...');
+          stdin.readLineSync()!;
+          break;
+
+        case 11:
+          clearScreen();
+          print('__________');
+          print('|Opcion 1|');
+          print('|________|\n\n');
           print("La cantidad de palabras es: ${contadorDePalabras(texto)}");
-          print('Presiona enter para continuar...');
+          print('\n\n\n\n\n\n\n\n Presiona enter para continuar...');
           stdin.readLineSync()!;
           break;
 
-        case 7:
+        case 12:
           clearScreen();
-          print('Opcion 2');
+          print('__________');
+          print('|Opcion 2|');
+          print('|________|\n\n');
           print("Ingrese la palabra clave a buscar: ");
           String palabraClave = stdin.readLineSync()!;
           print("La frecuencia de la palabra es: ${contadorDePalabrasClave(texto, palabraClave)}");
-          print('Presiona enter para continuar...');
+          print('\n\n\n\n\n\n\n\n Presiona enter para continuar...');
           stdin.readLineSync()!;
           break;
   
-        case 4: //regresar al menu anterior
+        case 5: //regresar al menu anterior
           clearScreen();
-          print('Presiona enter para continuar...');
+          print('\n\n Presiona enter para regresar al menu anterior...');
+          stdin.readLineSync()!;
           Menu();
           break;
   
-        case 5: //salir
+        case 0:
           clearScreen();
-          print('Seguro que deseas salir?');
-          print('S o N');
+          print('Seguro que deseas salir ?');
+          stdout.write("\n\n S o N_: ");
           String respuesta = stdin.readLineSync()!;
           if(respuesta == 'S' || respuesta == 's'){
+            valor = true;
+            clearScreen();
             exit(0);
           }
+          else{
+              clearScreen();
+              print("Opcion no valida");
+              print('\n\n\n\n\n\n\n\n Presiona enter para continuar...');
+              stdin.readLineSync()!;
+            }
           clearScreen();
           break;
   
         default:
           clearScreen();
           print('Opcion no valida');
+          print('\n\n\n\n\n\n\n\n Presiona enter para continuar...');
+          stdin.readLineSync()!;
           clearScreen();
           break;
     }//fin del switch
@@ -215,5 +267,11 @@ int contadorDePalabrasClave(String texto, String palabraClave) {
   int cantidadCoincidencias = palabras.where((palabra) => palabra == palabraClave).length;
 
   return cantidadCoincidencias;
+}
+
+int contadorDeCaracteres(String texto) {
+  // Utilizamos la propiedad length de la cadena para contar la cantidad de caracteres.
+  int cantidadCaracteres = texto.length;
+  return cantidadCaracteres;
 }
 
