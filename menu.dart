@@ -41,8 +41,7 @@ void Menu(){
           clearScreen();
           print('Ingresa el texto a analizar:');
           String texto = stdin.readLineSync()!;
-          print('\n \nEl texto ingresado es:\n $texto \n');
-          print('Presiona enter para continuar...');
+          print(' \n Presiona enter para continuar...');
           stdin.readLineSync()!;
           clearScreen();
           menuSecundario(opcMenuPrincipal, texto);
@@ -62,8 +61,7 @@ void Menu(){
             // Verifica si el archivo existe.
             if (archivo.existsSync()) {
               texto = archivo.readAsStringSync();
-              print('Contenido del archivo:\n$texto');
-              print('Presiona enter para continuar...');
+              print('\n Presiona enter para continuar...');
               stdin.readLineSync()!;
               menuSecundario(opcMenuPrincipal, texto);
             } else {
