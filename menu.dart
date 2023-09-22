@@ -66,12 +66,19 @@ void Menu(){
               texto = archivo.readAsStringSync();
               print('\n\n\n\n\n\n\n\n Presiona enter para continuar...');
               stdin.readLineSync()!;
+              clearScreen();
               menuSecundario(opcMenuPrincipal, texto);
             } else {
               print('El archivo no existe en la ruta proporcionada.');
+              print('\n\n\n\n\n\n\n\n Presiona enter para continuar...');
+              stdin.readLineSync()!;
+              clearScreen();
             }
           } catch (e) {
             print('Ocurrió un error al leer el archivo: $e');
+            print('\n\n\n\n\n\n\n\n Presiona enter para continuar...');
+            stdin.readLineSync()!;
+            clearScreen();
           }
           break;
 
